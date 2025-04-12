@@ -3,8 +3,8 @@
   body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      padding: 0.5rem;
+      text-align: left;
       background: radial-gradient(circle, #800080, #0000FF); /* Fondo morado que se desvanece al azul desde el centro */
       color: white;
       position: relative;
@@ -37,31 +37,37 @@
       color: white;
       padding: 1rem;
       position: relative;
+      width: 80px;
+      height: auto;
+      margin: 10px auto;
+
     }
     
     header h1 {
       flex-grow: 1;
       text-align: center;
       margin: 0;
+      font-size: 1.5rem;
     }
     
     header .logo {
-      width: 120px;
-      height: 100px;
-      margin: 20px; 
+      width: 80px;
+      height: auto;
+      margin: 10px auto;
+      
     }
   
   main {
-    padding: 1rem;
+    padding: 0.5rem;
   }
   
   .producto {
     display: inline-block;
-    margin: 1rem;
+    margin: 0.5rem 0;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 1rem;
-    width: 200px;
+    width: 100%;
   }
   
   .producto img {
@@ -76,6 +82,8 @@
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 5px;
+    width: 100%;
+    padding: 0.7rem;
   }
   
   button:hover {
@@ -86,7 +94,7 @@
   #btn-menu {
       position: absolute;
       top: 10px;
-      left: 20px; /* Ajusta la separación del borde izquierdo */
+      left: 10px; /* Ajusta la separación del borde izquierdo */
       background-color: #4CAF50;
       color: white;
       border: none;
@@ -100,12 +108,13 @@
   #submenu {
     position: absolute;
     top: 50px; /* Debajo del botón */
-    left: 10px;
+    left: 5%;
     background-color: white;
     border: 1px solid #ddd;
     padding: 1rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    width: 90%;
   }
   
   .hidden {
