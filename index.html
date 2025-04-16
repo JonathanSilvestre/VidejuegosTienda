@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Videojuegos</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videjuegos Tienda</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="Img/Logo1.png" alt="Logo Izquierdo" class="logo">
-    <h1>Tienda de Videojuegos</h1>
-    <img src="Img/Logo2.png" alt="Logo Derecho" class="logo">
-    <div id="btn-menu" onclick="toggleMenu()">
-    <span>≡</span>
-    </div>
-    <div id="submenu" class="hidden">
-    <button onclick="iniciarSesion()">Iniciar Sesión</button>
-    </div>
-  </header>
-  <main>
-    <section id="productos">
-      <h2>Catálogo</h2>
-      <div class="producto">
-        <img src="https://via.placeholder.com/150" alt="Juego 1">
-        <h3>Juego 1</h3>
-        <p>Precio: $50</p>
-        <button onclick="agregarAlCarrito('Juego 1')">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="https://via.placeholder.com/150" alt="Juego 2">
-        <h3>Juego 2</h3>
-        <p>Precio: $40</p>
-        <button onclick="agregarAlCarrito('Juego 2')">Agregar al carrito</button>
-      </div>
-    </section>
-    <section id="carrito">
-      <h2>Carrito</h2>
-      <ul id="lista-carrito"></ul>
-    </section>
-  </main>
-  <script src="app.js"></script>
+    <header>
+        <h1>Videjuegos Tienda</h1>
+        <button id="btn-menu">Menú</button>
+        <div id="submenu" class="hidden">
+            <!-- Este contenido cambiará dinámicamente -->
+        </div>
+    </header>
+    <main>
+        <p>Bienvenido a la tienda de videojuegos.</p>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
