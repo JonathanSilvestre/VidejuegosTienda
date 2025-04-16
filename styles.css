@@ -35,18 +35,20 @@ header {
   color: white;
   padding: 1rem;
   position: relative;
+  flex-wrap: wrap;
 }
 
 header h1 {
   flex-grow: 1;
   text-align: center;
   margin: 0;
+  font-size: 1.5rem;
 }
 
 header .logo {
-  width: 120px;
+  width: 80px;
   height: 100px;
-  margin: 20px; 
+  margin: 20px;
 }
 
 main {
@@ -80,11 +82,11 @@ button:hover {
 background-color: #45a049;
 }
 
-/* Estilo para el botón del menú */
+
 #btn-menu {
   position: absolute;
   top: 10px;
-  left: 20px; /* Ajusta la separación del borde izquierdo */
+  right: 10px; 
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -94,10 +96,10 @@ background-color: #45a049;
   z-index: 1000;
 }
 
-/* Estilo para el submenú */
+
 #submenu {
 position: absolute;
-top: 50px; /* Debajo del botón */
+top: 50px; 
 left: 10px;
 background-color: white;
 border: 1px solid #ddd;
@@ -108,4 +110,29 @@ z-index: 1000;
 
 .hidden {
 display: none;
+}
+
+@media screen and ( max-width:768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  header .logo {
+    width: 60px;
+    margin: 0.5rem 0;
+  }
+
+  #btn-menu {
+    top: auto;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  
 }
