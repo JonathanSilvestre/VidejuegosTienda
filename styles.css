@@ -97,19 +97,32 @@ background-color: #45a049;
 }
 
 
-#submenu {
-position: absolute;
-top: 50px; 
-left: 10px;
-background-color: white;
-border: 1px solid #ddd;
-padding: 1rem;
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-z-index: 1000;
+main {
+  padding: 1rem;
+  text-align: center;
 }
 
-.hidden {
-display: none;
+main ul {
+  list-style: none;
+  padding: 0;
+}
+
+main ul li {
+  margin: 1rem 0;
+}
+
+main ul li a, main ul li button {
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main ul li button:hover, main ul li a:hover {
+  background-color: #45a049;
 }
 
 @media screen and ( max-width:768px) {

@@ -11,14 +11,17 @@
         <img src="Img/Logo1.png" alt="Logo 1" class="logo">
         <h1>Videjuegos Tienda</h1>
         <img src="Img/Logo2.png" alt="Logo 2" class="logo">
-        <button id="btn-menu">≡</button>
-        <div id="submenu" class="hidden">
-          
-        </div>
+        <button id="btn-menu" onclick="window.location.href='menu.html'">≡</button>
     </header>
     <main>
         <p>Bienvenido a la tienda de videojuegos.</p>
     </main>
     <script src="script.js"></script>
+    <script>
+      // Redirige al menú si el usuario ya está logueado
+      if (localStorage.getItem('isLoggedIn') === 'true') {
+          window.location.href = 'menu.html';
+      }
+  </script>
 </body>
 </html>

@@ -16,9 +16,10 @@
     </form>
     <script>
         function login() {
-            // Simula el login y redirige a la página principal
+            // Simula el login y guarda el estado en localStorage
+            localStorage.setItem('isLoggedIn', 'true'); // Guarda el estado del login
             alert('Login exitoso');
-            window.location.href = 'index.html';
+            window.location.href = 'menu.html'; // Redirige al menú
         }
     </script>
 </body>

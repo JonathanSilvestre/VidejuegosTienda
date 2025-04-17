@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
 </head>
 <body>
-    <h1>Carrito de Compras</h1>
-    <p>Aquí puedes ver los productos en tu carrito.</p>
+    <header>
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
+        <h1>Videjuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+    </header>
+    <main>
+        <h1>Carrito de Compras</h1>
+        <section id="cart-items">
+            <!-- Productos en el carrito -->
+            <div class="cart-item">
+                <img src="Img/producto1.png" alt="Producto 1" class="cart-item-img">
+                <div class="cart-item-details">
+                    <h2>Producto 1</h2>
+                    <p>Precio: $500</p>
+                    <p>Cantidad: 1</p>
+                    <button class="remove-item">Eliminar</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="Img/producto2.png" alt="Producto 2" class="cart-item-img">
+                <div class="cart-item-details">
+                    <h2>Producto 2</h2>
+                    <p>Precio: $300</p>
+                    <p>Cantidad: 2</p>
+                    <button class="remove-item">Eliminar</button>
+                </div>
+            </div>
+        </section>
+        <section id="cart-summary">
+            <h2>Resumen del Carrito</h2>
+            <p>Total: $1100</p>
+            <button id="checkout-button">Proceder a la Compra</button>
+        </section>
+    </main>
+    <script>
+        // Lógica para eliminar productos del carrito
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Producto eliminado del carrito.');
+                // Aquí puedes agregar lógica para eliminar el producto del carrito
+            });
+        });
+
+        // Lógica para proceder a la compra
+        const checkoutButton = document.getElementById('checkout-button');
+        checkoutButton.addEventListener('click', () => {
+            alert('Redirigiendo a la página de pago...');
+            // Aquí puedes redirigir a una página de pago
+        });
+    </script>
 </body>
 </html>

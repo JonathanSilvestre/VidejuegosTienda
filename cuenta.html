@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuenta</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
 </head>
 <body>
-    <h1>Mi Cuenta</h1>
-    <p>Información de tu cuenta.</p>
+    <header>
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
+        <h1>Videjuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+    </header>
+    <main>
+        <h1>Mi Cuenta</h1>
+        <section id="account-settings">
+            <h2>Configuración de la Cuenta</h2>
+            <form id="account-form">
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" value="Usuario123" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" value="usuario@example.com" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="********" required>
+                
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </section>
+        <section id="account-actions">
+            <h2>Acciones</h2>
+            <button onclick="logout()">Cerrar Sesión</button>
+        </section>
+    </main>
+    <script>
+        // Lógica para manejar el formulario de configuración
+        const accountForm = document.getElementById('account-form');
+        accountForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Cambios guardados exitosamente.');
+            // Aquí puedes agregar lógica para guardar los cambios
+        });
+
+        // Lógica para cerrar sesión
+        function logout() {
+            localStorage.setItem('isLoggedIn', 'false'); // Actualiza el estado del login
+            alert('Has cerrado sesión.');
+            window.location.href = 'index.html'; // Redirige a la página principal
+        }
+    </script>
 </body>
 </html>

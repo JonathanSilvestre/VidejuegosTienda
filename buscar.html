@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
 </head>
 <body>
-    <h1>Buscar Productos</h1>
-    <p>Aquí puedes buscar productos.</p>
+    <header>
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
+        <h1>Videjuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+    </header>
+    <main>
+        <h1>Buscar Productos</h1>
+        <form id="search-form">
+            <input type="text" id="search-bar" placeholder="Buscar productos..." required>
+            <button type="submit">Buscar</button>
+        </form>
+    </main>
 </body>
 </html>
