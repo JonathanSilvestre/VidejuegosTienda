@@ -4,22 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
 </head>
 <body>
-    <h1>Login</h1>
-    <form onsubmit="event.preventDefault(); login();">
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" required>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" required>
-        <button type="submit">Iniciar Sesión</button>
-    </form>
+    <header>
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
+        <h1>Videjuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+    </header>
+    <main>
+        <h1>Iniciar Sesión</h1>
+        <section id="login-section">
+            <form id="login-form" onsubmit="event.preventDefault(); login();">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </section>
+    </main>
     <script>
         function login() {
-            // Simula el login y guarda el estado en localStorage
-            localStorage.setItem('isLoggedIn', 'true'); // Guarda el estado del login
-            alert('Login exitoso');
-            window.location.href = 'menu.html'; // Redirige al menú
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                // Simula el login y guarda el estado en localStorage
+                localStorage.setItem('isLoggedIn', 'true'); // Guarda el estado del login
+                alert(`Bienvenido, ${username}`);
+                window.location.href = 'menu.html'; // Redirige al menú
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
         }
     </script>
 </body>
