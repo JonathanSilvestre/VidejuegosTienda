@@ -35,13 +35,18 @@
             <button onclick="logout()">Cerrar Sesión</button>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Videojuegos Tienda. Todos los derechos reservados.</p> <!-- Pie de página -->
+    </footer>
+    
     <script>
         // Lógica para manejar el formulario de configuración
         const accountForm = document.getElementById('account-form');
         accountForm.addEventListener('submit', (event) => {
             event.preventDefault();
             alert('Cambios guardados exitosamente.');
-            // Aquí puedes agregar lógica para guardar los cambios
+            // Aquí puedes agregar lógica para guardar los cambios en el servidor o localStorage 
         });
 
         // Lógica para cerrar sesión

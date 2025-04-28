@@ -4,60 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo de estilos reutilizables -->
 </head>
 <body>
     <header>
-        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
-        <h1>Videjuegos Tienda</h1>
-        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo"> <!-- Primer logo -->
+        <h1>Videojuegos Tienda</h1> <!-- Título de la tienda -->
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo"> <!-- Segundo logo -->
+        <!-- Botones de navegación -->
         <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+        <button onclick="window.location.href='buscar.html'">Buscar Productos</button>
     </header>
+
     <main>
         <h1>Carrito de Compras</h1>
-        <section id="cart-items">
-            <!-- Productos en el carrito -->
-            <div class="cart-item">
-                <img src="Img/producto1.png" alt="Producto 1" class="cart-item-img">
-                <div class="cart-item-details">
-                    <h2>Producto 1</h2>
-                    <p>Precio: $500</p>
-                    <p>Cantidad: 1</p>
-                    <button class="remove-item">Eliminar</button>
-                </div>
-            </div>
-            <div class="cart-item">
-                <img src="Img/producto2.png" alt="Producto 2" class="cart-item-img">
-                <div class="cart-item-details">
-                    <h2>Producto 2</h2>
-                    <p>Precio: $300</p>
-                    <p>Cantidad: 2</p>
-                    <button class="remove-item">Eliminar</button>
-                </div>
-            </div>
+
+        <!-- Contenedor para mostrar los productos del carrito -->
+        <section id="cart-items" class="cart-grid">
+            <!-- Productos cargados dinámicamente aquí -->
         </section>
+
+        <!-- Resumen del carrito -->
         <section id="cart-summary">
             <h2>Resumen del Carrito</h2>
-            <p>Total: $1100</p>
-            <button id="checkout-button">Proceder a la Compra</button>
+            <p id="total-price">Total: $0</p>
         </section>
-    </main>
-    <script>
-        // Lógica para eliminar productos del carrito
-        const removeButtons = document.querySelectorAll('.remove-item');
-        removeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                alert('Producto eliminado del carrito.');
-                // Aquí puedes agregar lógica para eliminar el producto del carrito
-            });
-        });
 
-        // Lógica para proceder a la compra
-        const checkoutButton = document.getElementById('checkout-button');
-        checkoutButton.addEventListener('click', () => {
-            alert('Redirigiendo a la página de pago...');
-            // Aquí puedes redirigir a una página de pago
-        });
+        <!-- Botón para proceder al pago -->
+        <button id="checkout-button" onclick="window.location.href='pago.html'">Proceder a la Compra.</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Videojuegos Tienda. Todos los derechos reservados.</p> <!-- Pie de página -->
+    </footer>
+
+    <script>
+        // Función para cargar los productos del carrito
+        const loadCart = () => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // Obtiene el carrito desde localStorage, o inicia vacío
+            const cartItemsContainer = document.getElementById('cart-items'); // Contenedor de productos
+            const totalPriceElement = document.getElementById('total-price'); // Elemento para mostrar el total
+            cartItemsContainer.innerHTML = ''; // Limpia el contenedor antes de actualizar
+
+            let total = 0; // Variable para calcular el precio total
+
+            cart.forEach(item => {
+                const productElement = document.createElement('div'); // Crea un elemento para cada producto
+                productElement.classList.add('product');
+                productElement.innerHTML = `
+                    <p>${item.name}</p> <!-- Nombre del producto -->
+                    <p>Precio: $${item.price}</p> <!-- Precio del producto -->
+                    <p>Cantidad: ${item.quantity}</p> <!-- Cantidad -->
+                    <button class="remove-from-cart" data-id="${item.id}">Eliminar</button> <!-- Botón para eliminar -->
+                `;
+                cartItemsContainer.appendChild(productElement); // Agrega el producto al contenedor
+                total += item.price * item.quantity; // Suma el precio total
+            });
+
+            totalPriceElement.textContent = `Total: $${total}`; // Actualiza el precio total en la interfaz
+
+            // Agrega eventos para eliminar productos del carrito
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', () => {
+                    removeFromCart(button.getAttribute('data-id')); // Llama a la función para eliminar
+                });
+            });
+        };
+
+        // Función para eliminar productos del carrito
+        const removeFromCart = (id) => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // Obtiene el carrito actual
+            const productIndex = cart.findIndex(item => item.id == id); // Encuentra el índice del producto
+
+            if (productIndex !== -1) {
+                if (cart[productIndex].quantity > 1) {
+                    cart[productIndex].quantity -= 1; // Reduce la cantidad en 1
+                } else {
+                    cart.splice(productIndex, 1); // Elimina el producto si queda en 0
+                }
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart)); // Actualiza el carrito en localStorage
+            loadCart(); // Recarga la vista del carrito
+        };
+
+        // Cargar el carrito al iniciar la página
+        document.addEventListener('DOMContentLoaded', loadCart);
     </script>
 </body>
 </html>

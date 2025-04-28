@@ -4,21 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Reutiliza los estilos -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo de estilos -->
 </head>
 <body>
     <header>
-        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
-        <h1>Videjuegos Tienda</h1>
-        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo"> <!-- Logo de la tienda -->
+        <h1>Videojuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo"> <!-- Segundo logo -->
+        <!-- Botones de navegación -->
         <button id="btn-menu" onclick="window.location.href='index.html'">≡</button>
+        <button onclick="window.location.href='carrito.html'">Carrito</button>
     </header>
+
     <main>
         <h1>Buscar Productos</h1>
-        <form id="search-form">
-            <input type="text" id="search-bar" placeholder="Buscar productos..." required>
-            <button type="submit">Buscar</button>
-        </form>
+
+        <!-- Barra de búsqueda -->
+        <label for="searchBar">Buscar:</label>
+        <input type="text" id="searchBar" placeholder="Buscar videojuegos...">
+
+        <!-- Mensaje en caso de no encontrar resultados -->
+        <p id="no-results-message" style="display: none;">No hay productos que coincidan con tu búsqueda.</p>
+
+        <!-- Lista de productos -->
+        <section id="product-list">
+            <div class="product" data-name="The Legend of Zelda" data-id="1" data-price="1399">
+                <img src="Img/zelda.png" alt="The Legend of Zelda" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1399</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Super Mario Odyssey" data-id="2" data-price="1400">
+                <img src="Img/mario.png" alt="Super Mario Odyssey" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1400</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="God of War" data-id="3" data-price="830">
+                <img src="Img/gow.png" alt="God of War" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 830</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Final Fantasy VII" data-id="4" data-price="800">
+                <img src="Img/ff7.png" alt="Final Fantasy VII" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 800</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Minecraft" data-id="5" data-price="400">
+                <img src="Img/minecraft.png" alt="Minecraft" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 400</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Call of Duty: Black Ops" data-id="6" data-price="1590">
+                <img src="Img/cod.png" alt="Call of Duty: Black Ops" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1590</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="FIFA 25" data-id="7" data-price="767">
+                <img src="Img/fifa.png" alt="FIFA 25" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 767</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Overwatch 2 - Pack de invasión" data-id="8" data-price="299">
+                <img src="Img/overwatch.png" alt="Overwatch 2 - Pack de invasión" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 299</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="The Witcher 3" data-id="9" data-price="350">
+                <img src="Img/witcher.png" alt="The Witcher 3" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 350</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Raccoon City Edition" data-id="10" data-price="800">
+                <img src="Img/re2.png" alt="Raccoon City Edition" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 800</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Assassin's Creed Valhalla" data-id="11" data-price="1200">
+                <img src="Img/acv.png" alt="Assassin's Creed Valhalla" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1200</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Cyberpunk 2077" data-id="12" data-price="1800">
+                <img src="Img/cyberpunk.png" alt="Cyberpunk 2077" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1800</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Horizon Zero Dawn" data-id="13" data-price="830">
+                <img src="Img/hzd.png" alt="Horizon Zero Dawn" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 830</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Sekiro: Shadows Die Twice" data-id="14" data-price="1300">
+                <img src="Img/sekiro.png" alt="Sekiro: Shadows Die Twice" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1300</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Dark Souls III" data-id="15" data-price="800">
+                <img src="Img/darksouls3.png" alt="Dark Souls III" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 800</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Ghost of Tsushima" data-id="16" data-price="800">
+                <img src="Img/gots.png" alt="Ghost of Tsushima" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 800</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Death Stranding" data-id="17" data-price="770">
+                <img src="Img/deathstranding.png" alt="Death Stranding" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 770</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Final Fantasy XV" data-id="18" data-price="745">
+                <img src="Img/ff15.png" alt="Final Fantasy XV" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 745</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Persona 5" data-id="19" data-price="999">
+                <img src="Img/persona5.png" alt="Persona 5" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 999</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Monster Hunter World" data-id="20" data-price="390">
+                <img src="Img/mhw.png" alt="Monster Hunter World" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 390</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+            <div class="product" data-name="Bloodborne" data-id="21" data-price="700">
+                <img src="Img/bloodborne.png" alt="Bloodborne" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 700</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>  
+            <div class="product" data-name="The Last of Us Part II" data-id="22" data-price="2000">
+                <img src="Img/tlou2.png" alt="The Last of Us Part II" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 2000</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>  
+            <div class="product" data-name="Gran Turismo 7" data-id="23" data-price="998">
+                <img src="Img/gt7.png" alt="Gran Turismo 7" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 998</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>  
+            <div class="product" data-name="Ratchet & Clank: Rift Apart" data-id="24" data-price="1000">
+                <img src="Img/ratchet.png" alt="Ratchet & Clank: Rift Apart" class="product-img"> <!-- Imagen del producto -->
+                <p class="price">Precio: 1000</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Videojuegos Tienda. Todos los derechos reservados.</p> <!-- Pie de página -->
+    </footer>
+
+    <script>
+        // Función para manejar la búsqueda
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase(); // Convierte la búsqueda a minúsculas para facilitar las comparaciones
+            const products = document.querySelectorAll('.product'); // Selecciona todos los productos
+            let hasResults = false; // Variable para rastrear si hay resultados
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase(); // Obtiene el nombre del producto
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block'; // Muestra el producto si coincide
+                    hasResults = true; // Indica que hay resultados
+                } else {
+                    product.style.display = 'none'; // Oculta el producto si no coincide
+                }
+            });
+
+            // Mostrar u ocultar el mensaje de "No hay resultados"
+            const noResultsMessage = document.getElementById('no-results-message');
+            noResultsMessage.style.display = hasResults ? 'none' : 'block'; // Muestra el mensaje solo si no hay resultados
+        });
+
+        // Función para añadir productos al carrito
+        const addToCart = (id, name, price) => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // Obtiene el carrito desde localStorage, o inicia uno nuevo si está vacío
+            const existingProduct = cart.find(item => item.id == id); // Busca si el producto ya está en el carrito
+
+            if (existingProduct) {
+                existingProduct.quantity += 1; // Incrementa la cantidad si ya existe
+            } else {
+                cart.push({ id, name, price, quantity: 1 }); // Añade un nuevo producto al carrito
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart)); // Guarda el carrito actualizado en localStorage
+            alert(`${name} añadido al carrito.`); // Muestra una alerta al usuario
+        };
+
+        // Asignar eventos a los botones para añadir al carrito
+        document.querySelectorAll('.product-img, .add-to-cart').forEach(element => {
+            element.addEventListener('click', () => {
+                const product = element.closest('.product'); // Encuentra el contenedor del producto
+                const id = product.getAttribute('data-id'); // Obtiene el ID del producto
+                const name = product.getAttribute('data-name'); // Obtiene el nombre del producto
+                const price = product.getAttribute('data-price'); // Obtiene el precio del producto
+
+                addToCart(id, name, price); // Llama a la función para añadir al carrito
+            });
+        });
+    </script>
 </body>
 </html>

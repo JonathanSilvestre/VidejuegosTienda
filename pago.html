@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a los estilos -->
+</head>
+<body>
+    <header>
+        <img src="Img/Logo1.png" alt="Logo 1" class="logo">
+        <h1>Videojuegos Tienda</h1>
+        <img src="Img/Logo2.png" alt="Logo 2" class="logo">
+        <button id="btn-menu" onclick="window.location.href='carrito.html'">Volver al carrito</button>
+    </header>
+    <main>
+        <h1>Página de Pago</h1>
+        <section id="payment-summary">
+            <h2>Resumen de Compra</h2>
+            <div id="cart-summary"></div> <!-- Resumen dinámico del carrito -->
+        </section>
+        <section id="payment-form">
+            <h2>Formulario de Pago</h2>
+            <form>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+                
+                <label for="card">Número de Tarjeta:</label>
+                <input type="text" id="card" required>
+                
+                <button type="submit">Completar Pago</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Videojuegos Tienda. Todos los derechos reservados.</p> <!-- Pie de página -->
+    </footer>
+    
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartSummary = document.getElementById('cart-summary');
+
+        if (cart.length === 0) {
+            cartSummary.innerHTML = '<p>No hay productos en el carrito.</p>';
+        } else {
+            let total = 0;
+            cart.forEach(item => {
+                cartSummary.innerHTML += `
+                    <div>
+                        <p>${item.name} x${item.quantity}: $${item.price * item.quantity}</p>
+                    </div>
+                `;
+                total += item.price * item.quantity;
+            });
+            cartSummary.innerHTML += `<h3>Total: $${total}</h3>`;
+        }
+
+        const paymentForm = document.querySelector('form');
+        paymentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Pago completado con éxito. Gracias por tu compra.');
+            localStorage.removeItem('cart'); // Limpia el carrito tras el pago
+            window.location.href = 'buscar.html'; // Redirige a la página de productos
+        });
+    </script>
+</body>
+</html>

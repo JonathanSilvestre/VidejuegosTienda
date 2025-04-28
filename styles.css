@@ -1,13 +1,15 @@
+/* Estilos generales */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
-  background: radial-gradient(circle, #800080, #0000FF); /* Fondo morado que se desvanece al azul desde el centro */
+  background: radial-gradient(circle, #800080, #0000FF);
   color: white;
   position: relative;
 }
 
+/* Fondo con líneas diagonales */
 body::before {
   content: "";
   position: absolute;
@@ -16,28 +18,30 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      #FF00FF 20px,
-      #FF00FF 40px
-  ); /* Cuadrados rosa neon */
-  opacity: 0.2; /* Transparencia para no saturar */
+    45deg,
+    transparent,
+    transparent 20px,
+    #FF00FF 20px,
+    #FF00FF 40px
+  );
+  opacity: 0.2;
   z-index: -1;
 }
 
+/* Encabezado */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: radial-gradient(circle, #800080, #0000FF); /* Fondo morado que se desvanece al azul desde el centro */
-  border: 2px solid #FF00FF; /* Borde rosa neon */
+  background: radial-gradient(circle, #800080, #0000FF);
+  border: 2px solid #FF00FF;
   color: white;
   padding: 1rem;
   position: relative;
   flex-wrap: wrap;
 }
 
+/* Título en el encabezado */
 header h1 {
   flex-grow: 1;
   text-align: center;
@@ -45,44 +49,14 @@ header h1 {
   font-size: 1.5rem;
 }
 
+/* Logos */
 header .logo {
   width: 80px;
   height: 100px;
   margin: 20px;
 }
 
-main {
-padding: 1rem;
-}
-
-.producto {
-display: inline-block;
-margin: 1rem;
-border: 1px solid #ddd;
-border-radius: 5px;
-padding: 1rem;
-width: 200px;
-}
-
-.producto img {
-width: 100%;
-height: auto;
-}
-
-button {
-background-color: #4CAF50;
-color: white;
-border: none;
-padding: 0.5rem 1rem;
-cursor: pointer;
-border-radius: 5px;
-}
-
-button:hover {
-background-color: #45a049;
-}
-
-
+/* Botón de menú */
 #btn-menu {
   position: absolute;
   top: 10px;
@@ -96,41 +70,163 @@ background-color: #45a049;
   z-index: 1000;
 }
 
+/* Botones generales */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
+/* Efecto al pasar el mouse sobre botones */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Contenido principal */
 main {
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
 }
 
+/* Barra de búsqueda */
+#searchBar {
+  width: 50%;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  border: 2px solid #FF00FF;
+  outline: none;
+}
+
+/* Lista de productos */
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+/* Tarjeta de producto */
+.product {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #FF00FF;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre producto */
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.6);
+}
+
+/* Imagen del producto */
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+/* Precio del producto */
+.price {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+/* Pie de página */
+footer {
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 2px solid #FF00FF;
+}
+
+/* Estilos especiales para el menú de navegación */
 main ul {
-  list-style: none;
+  list-style: none; /* Quitar viñetas */
   padding: 0;
 }
 
+/* Estilos para cada elemento del menú */
 main ul li {
   margin: 1rem 0;
 }
 
+/* Enlaces y botones dentro del menú */
 main ul li a, main ul li button {
-  text-decoration: none;
-  background-color: #4CAF50;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none; /* Sin subrayado */
+  background-color: #4CAF50; /* Color verde */
+  color: white; /* Texto blanco */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border: none; /* Sin bordes */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de mano */
+  display: inline-block; /* Comportamiento en línea */
+  margin: 0.5rem; /* Separación */
 }
 
-main ul li button:hover, main ul li a:hover {
+/* Efecto al pasar el mouse sobre enlaces y botones */
+main ul li a:hover, main ul li button:hover {
   background-color: #45a049;
 }
 
-@media screen and ( max-width:768px) {
+/* Carrito de compras: Estilo de los items */
+.cart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cart-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FF00FF;
+  border-radius: 10px;
+  width: 250px;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 10px #FF00FF;
+}
+
+.cart-item-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cart-item-details h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Resumen del carrito */
+#cart-summary {
+  margin-top: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #FF00FF;
+  padding: 1rem;
+  border-radius: 10px;
+  width: fit-content;
+  margin-inline: auto;
+  color: white;
+}
+
+/* Diseño responsive */
+/* ajustes para celulares */
+@media screen and (max-width: 768px) {
   header {
     flex-direction: column;
     align-items: center;
   }
-
+  
   header h1 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
@@ -138,15 +234,22 @@ main ul li button:hover, main ul li a:hover {
 
   header .logo {
     width: 60px;
+    height: auto;
     margin: 0.5rem 0;
   }
 
   #btn-menu {
-    top: auto;
-    margin-top: 10px;
     position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 10px;
   }
 
-  
-}
+  #product-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
+  #searchBar {
+    width: 80%;
+  }
+}
